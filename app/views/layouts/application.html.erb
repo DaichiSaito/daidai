@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta lang='ja'>
+    <title>Queueboard</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+  </head>
+
+  <body class="<%= controller_name -%> <%= action_name -%>">
+    <%= render 'shared/header'%>
+    <div id='flash_message'>
+      <%= render 'shared/flash' %>
+    </div>
+    <%= yield %>
+    <%= render 'shared/footer'%>
+  </body>
+</html>

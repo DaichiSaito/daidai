@@ -1,0 +1,10 @@
+ja:
+  common:
+    to_login: 'ログインはこちら'
+    to_forget_password: 'パスワードをお忘れの方はこちら'
+    to_register: '新規登録はこちら'
+    register: '登録'
+    login: 'ログイン'
+    post: '投稿'
+    update: '更新'
+    search: '検索'

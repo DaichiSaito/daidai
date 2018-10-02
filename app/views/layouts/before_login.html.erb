@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta lang='ja'>
+    <title>Queueboard</title>
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <%= render 'shared/before_login_header' %>
+    <div id='flash_message'>
+      <%= render 'shared/flash' %>
+    </div>
+    <div class='mt30'>
+      <%= yield %>
+    </div>
+  </body>
+</html>

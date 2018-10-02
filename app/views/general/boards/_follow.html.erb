@@ -1,0 +1,8 @@
+<%= link_to follows_path(board_id: board.id),
+            method: :post,
+            id: "btn__follow-#{board.id}",
+            class: 'btn__follow',
+            style: 'font-size: 16px',
+            remote: true do %>
+  <%= fa_icon 'star-o' %>
+<% end %>

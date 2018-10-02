@@ -1,0 +1,19 @@
+<%= form_for board do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="form-group">
+    <%= f.label :title %><br />
+    <%= f.text_field :title, class: 'form-control', required: true %>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %><br />
+    <%= f.text_area :description, class: 'form-control', required: true, row: 10, style: 'height: 200px' %>
+  </div>
+  <div class="form-group">
+    <%= f.label :image %>
+    <%= f.file_field :image, class: 'form-control-file d-inline mt15' %>
+    <div class='mt15'>
+      <%= image_tag 'sample.jpg', class: 'img-responsize', size: '300x200' %>
+    </div>
+  </div>
+  <%= f.submit class: 'btn btn-transparent' %>
+<% end %>

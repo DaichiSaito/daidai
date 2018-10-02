@@ -1,0 +1,6 @@
+ja:
+  header:
+    to_board_index: '掲示板一覧'
+    to_board_create: '掲示板作成'
+  confirm:
+    delete: '削除しますか？'

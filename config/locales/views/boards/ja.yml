@@ -1,0 +1,9 @@
+ja:
+  general:
+    boards:
+      index:
+        no_contents: '掲示板がありません。'
+      new:
+        title: '掲示板作成'
+      edit:
+        title: '掲示板編集'

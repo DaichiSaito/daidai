@@ -1,0 +1,2 @@
+$("#js-notification-list").empty()
+$("#js-notification-list").html("<%= j(render('general/notifications/notifications',{ notifications: @notifications })) %>")

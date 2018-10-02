@@ -1,0 +1,10 @@
+if ($("body.follows.index").length) {
+    // フォロー一覧ページの場合
+    $("#js-board__box-<%= @board.id %>").remove();
+    if ($(".js-board__box").length == 0) {
+        $("#js-boards__box").html("<p><%= t('general.follows.index.no_contents') %></p>")
+    }
+} else {
+    // フォロー一覧ページ以外の場合
+    $("#btn__unfollow-<%= @board.id %>").html("<%= j(render('general/boards/follow', board: @board)) %>");
+}

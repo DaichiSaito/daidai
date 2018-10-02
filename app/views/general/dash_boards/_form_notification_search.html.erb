@@ -1,0 +1,4 @@
+<%= form_tag notifications_path, method: 'get', id: 'js-form-notification-search', remote: true do %>
+  <%= select_tag :search, options_for_searching_notification, id: 'js-notification-search-select' %>
+<% end %>
+<%= javascript_include_tag "notice.js" %>

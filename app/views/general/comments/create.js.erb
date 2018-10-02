@@ -1,0 +1,10 @@
+if($("#error_explanation").length) {
+    $("#error_explanation").remove()
+}
+<% if @comment.errors.present? %>
+  $("#new_comment").prepend("<%= j(render('shared/error_messages', object: @comment)) %>")
+<% else %>
+  $("#comments__table").prepend("<%= j(render('general/comments/comment', comment: @comment)) %>")
+  $("#comment_body").val("")
+<% end %>
+

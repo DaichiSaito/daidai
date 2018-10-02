@@ -1,0 +1,68 @@
+<div id='comment_area'>
+  <div class="widget dashboard-container my-adslist">
+    <table id="comments__table" class="table product-dashboard-table">
+      <%= render comments %>
+    </table>
+  </div>
+</div>
+<script>
+    $(function() {
+        $(document).on("click", "button.edit", function() {
+            $("p.error_messages").remove()
+
+            var commentId = $(this).data("comment-id")
+            var callbackSuccess = function(commentId, editButtonObject) {
+                switchToLabel(commentId)
+                $(editButtonObject).toggleClass("editting")
+            }
+            var callbackFail = function(commentId, messages) {
+                showErrorMessages(commentId, messages)
+            }
+            if($(this).hasClass("editting")) {
+                if(validatesComment(commentId)) { return }
+                submitComment($("#js-textarea-comment" + commentId).val(), commentId, this, callbackSuccess, callbackFail)
+            } else {
+                switchToEdit(commentId)
+                $(this).toggleClass("editting")
+            }
+        })
+
+        function validatesComment(commentId) {
+            return $("#js-textarea-comment" + commentId).val() == ""
+        }
+
+        function switchToLabel(commentId) {
+            $("#js-comment_text__box" + commentId).text($("#js-textarea-comment" + commentId).val().trim())
+            $("#js-textarea-comment" + commentId).hide()
+            $("#js-comment_text__box" + commentId).show()
+        }
+
+        function switchToEdit(commentId) {
+            $("#js-textarea-comment" + commentId).val($("#js-comment_text__box" + commentId).text().trim())
+            $("#js-comment_text__box" + commentId).hide()
+            $("#js-textarea-comment" + commentId).show()
+        }
+
+        function showErrorMessages(commentId, messages) {
+            $('<p class="error_messages">' + messages.join('<br>') + '</p>').insertBefore($("#js-textarea-comment" + commentId))
+        }
+        function submitComment(body, commentId, editButtonObject, callbackSuccess, callbackFail) {
+            $.ajax({
+                type: 'PATCH',
+                url: '/comments/' + commentId,
+                data: {
+                    comment: {
+                        body: body
+                    }
+                }
+            }).done(function (result) {
+                // 成功処理
+                // commentIDはresultからとってきたほうがいいんかな？
+                callbackSuccess(result.comment.id, editButtonObject)
+            }).fail(function (result) {
+                // 失敗処理
+                callbackFail(result.responseJSON.comment.id, result.responseJSON.errors.messages)
+            });
+        }
+    });
+</script>

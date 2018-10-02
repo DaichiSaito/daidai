@@ -1,0 +1,48 @@
+<header class="container header-top">
+  <div class="row">
+    <div class="col-md-12">
+      <nav class="navbar navbar-expand-lg  navigation">
+        <%= link_to image_tag("logo.png"), root_path, { class: 'navbar-brand'} %>
+        <%= button_tag(data: { toggle: 'collapse', target: '#navbarSupportedContent'}, aria: { controls: 'navbarSupportedContent', expanded: false, label: 'Toggle navigation'}, type: nil, name: nil, class: 'navbar-toggler') do %>
+          <span class="navbar-toggler-icon"></span>
+        <% end %>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto main-nav ">
+            <li class="nav-item active'">
+              <%= link_to 'Home', '#', { class: 'nav-link' } %>
+            </li>
+            <li class="nav-item dropdown dropdown-slide active">
+              <%= link_to '#', class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } do %>
+              掲示板<span><i class="fa fa-angle-down"></i></span>
+              <% end %>
+              <div class="dropdown-menu dropdown-menu-right">
+                <%= link_to t('header.to_board_index'), boards_path, { class: 'dropdown-item' } %>
+                <%= link_to t('header.to_board_create'), new_board_path, { class: 'dropdown-item' } %>
+              </div>
+            </li>
+            <li class="nav-item dropdown dropdown-slide">
+              <%= link_to '#', class: 'nav-link dropdown-toggle', data: { toggle: 'dropdown' }, aria: { haspopup: true, expanded: false } do %>
+                フォロー<span><i class="fa fa-angle-down"></i></span>
+              <% end %>
+              <div class="dropdown-menu dropdown-menu-right">
+                <%= link_to 'フォロー一覧', follows_path, { class: 'dropdown-item' } %>
+              </div>
+            </li>
+          </ul>
+          <ul class="navbar-nav ml-auto mt-10">
+            <li class="nav-item dropdown dropdown-slide">
+              <%= link_to image_tag("sample.jpg", size:'40x40', class: 'rounded-circle mr15'), '#' %>
+              <div class="dropdown-menu dropdown-menu-right">
+                <p class="text-center"><%= current_user.full_name %></p>
+                <%= link_to 'プロフィール編集', '#', class: 'dropdown-item' %>
+              </div>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Logout', logout_path, class: 'nav-link login-button', method: :post %>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </div>
+</header>

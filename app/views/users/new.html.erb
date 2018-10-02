@@ -1,0 +1,40 @@
+<div class="container col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+  <div class="widget change-password">
+    <h3 class="widget-header user"><%= User.model_name.human %><%= t 'common.register' %></h3>
+    <%= form_for @user do |f| %>
+      <%= render 'shared/error_messages', object: f.object %>
+      <div class="form-group">
+        <%= f.label :last_name %><br />
+        <%= f.text_field :last_name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :first_name %><br />
+        <%= f.text_field :first_name, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :image %>
+        <%= f.file_field :image, class: 'form-control-file d-inline mt15' %>
+        <div class='mt15'>
+          <%= image_tag 'sample.jpg', class: 'img-responsize', size: 150 %>
+        </div>
+      </div>
+      <div class="form-group">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, class: 'form-control' %>
+      </div>
+      <%= f.submit (t 'common.register'), class: 'btn btn-transparent' %>
+    <% end %>
+  </div>
+  <div class='text-center'>
+    <%= link_to (t 'common.to_login'), login_path, class: 'mr15' %>
+    <%= link_to (t 'common.to_forget_password'), '#' %>
+  </div>
+</div>

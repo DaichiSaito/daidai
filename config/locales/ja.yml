@@ -1,0 +1,33 @@
+ja:
+  user_sessions:
+    create:
+      success: 'ログイン成功'
+      failed: 'ログイン失敗'
+    destroy:
+      success: 'ログアウトしました'
+  users:
+    create:
+      success: 'ユーザ登録完了'
+      failed: 'ユーザ登録失敗'
+  general:
+    boards:
+      create:
+        success: '掲示板の作成が完了しました。'
+        failed: 'エラーが発生したため、掲示板を作成できません。'
+      update:
+        success: '掲示板の更新が完了しました。'
+        failed: 'エラーが発生したため、掲示板を更新できません。'
+      destroy:
+        success: '掲示板:%{title}を削除しました。'
+    comments:
+      create:
+        success: 'コメントを投稿しました。'
+        failed: 'エラーが発生したため、コメントを投稿できません。'
+    follows:
+      create:
+        success: '掲示板:%{title}をフォローしました。'
+        failed: 'エラーが発生したため、掲示板をフォローできません。'
+      destroy:
+        success: '掲示板:%{title}のフォローを解除しました。'
+  shared:
+    unauthorized_access: '不正なアクセスです。'

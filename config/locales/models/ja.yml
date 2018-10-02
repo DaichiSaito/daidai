@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      board: 掲示板
+      comment: コメント
+      follow: フォロー
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+        last_name: 姓
+        first_name: 名
+        image: プロフィール画像
+      board:
+        title: タイトル
+        description: 説明
+        image: サムネイル
+        notification_subject: タイトル
+        notification_body: 新しい掲示板が作成されました
+      comment:
+        body: 本文
+        notification_subject: コメント
+        notification_body: あなたの掲示板にコメントがつきました
+    enum:
+      notification:
+        search_condition:
+          search_all: 全て表示
+          search_boards: 掲示板作成情報のみ表示
+          search_comments: コメント情報のみ表示

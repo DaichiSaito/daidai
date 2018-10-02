@@ -1,0 +1,34 @@
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="search-result bg-gray">
+          <h2>お知らせ一覧</h2>
+          <strong>表示条件</strong>
+          <%= render 'form_notification_search' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="product-grid-list">
+          <div class="row mt-30">
+            <div class="col-sm-12" style="overflow: scroll; height: 400px;">
+              <div class="product-item bg-light">
+                <div class="card">
+                  <div class="card-body">
+                    <div class="widget dashboard-container my-adslist">
+                      <div id="js-notification-list">
+                        <%= render 'general/notifications/notifications', { notifications: @notifications } %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

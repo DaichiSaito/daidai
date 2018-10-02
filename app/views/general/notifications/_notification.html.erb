@@ -1,0 +1,17 @@
+<tr>
+  <td class="product-thumb">
+    <%= image_tag 'sample.jpg', class: 'rounded-circle', size:'50x50' %>
+  </td>
+  <td class="product-details">
+    <h3 class="title", style='display: inline;'>
+      <%= link_to notification.notifiable.notification_body, notification.notifiable.notification_link %>
+    </h3>
+    <p style='display: inline; float:right;'>
+      <%= l notification.created_at.to_date %>
+    </p>
+    <div class="notification_text">
+      <%= notification.notifiable.notification_subject %>:
+      <%= notification.notifiable.notification_subject_body %>
+    </div>
+  </td>
+</tr>

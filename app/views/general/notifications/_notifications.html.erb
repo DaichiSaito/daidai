@@ -1,0 +1,7 @@
+<% if @notifications.present? %>
+  <table class="table product-dashboard-table">
+    <%= render notifications if notifications.present? %>
+  </table>
+<% else %>
+  <p>お知らせはありません。</p>
+<% end %>

@@ -1,0 +1,31 @@
+<tr id="comment<%= comment.id %>">
+  <td class="product-thumb">
+    <%= image_tag(comment.user.image_url, class: 'rounded-circle', size: '50x50') %>
+  </td>
+  <td class="product-details">
+    <h3 class="title"><%= comment.user.decorate.full_name %></h3>
+    <div id="js-comment_text__box<%= comment.id %>" class="comment_text">
+      <%= simple_format(comment.body) %>
+    </div>
+    <div>
+      <textarea id="js-textarea-comment<%= comment.id %>" class="form-control" style="display: none;"></textarea>
+    </div>
+  </td>
+  <% if comment.user == current_user %>
+    <td class="action" data-title="Action">
+      <ul class="list-inline justify-content-center" style='float: right;'>
+        <li class="list-inline-item edit_comment_btn">
+          <button type='button' class='edit' data-comment-id="<%= comment.id %>"><i class='fa fa-clipboard'></i></button>
+        </li>
+        <li class="list-inline-item">
+          <%= link_to comment_path(comment),
+                      class: 'delete',
+                      method: :delete,
+                      remote: true do %>
+            <%= fa_icon 'trash' %>
+          <% end %>
+        </li>
+      </ul>
+    </td>
+  <% end %>
+</tr>

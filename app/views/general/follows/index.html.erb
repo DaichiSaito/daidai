@@ -1,0 +1,23 @@
+<div class="container col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+  <div class="advance-search">
+    <%= render 'shared/search_form', { url: follows_path } %>
+  </div>
+
+  <!-- 掲示板一覧 -->
+  <div id="js-boards__box" class="row mt15">
+    <% if @boards.present? %>
+      <% @boards.each do |board| %>
+        <div id="js-board__box-<%= board.id %>", class="col-sm-12 col-lg-3 js-board__box">
+          <%= render 'shared/board', { board: board } %>
+        </div>
+      <% end %>
+    <% else %>
+      <p><%= t('.no_contents') %></p>
+    <% end %>
+  </div>
+
+  <!-- ページネーション -->
+  <%= paginate @boards %>
+</div>
+
+

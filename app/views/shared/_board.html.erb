@@ -1,0 +1,37 @@
+<div id="product-id-<%= board.id %>" class="product-item bg-light">
+  <div class="card">
+    <div class="thumb-content">
+      <%= link_to image_tag(board.image_url, class: 'card-img-top img-fluid', size: '300x200'), '#' %>
+    </div>
+    <div class="card-body">
+      <h4 class="card-title" style='display: inline;'>
+        <%= link_to board.title, board_path(board) %>
+      </h4>
+      <% if current_user.has_board?(board) %>
+        <div class='edit_board_btn mr10' style='display: inline; float: right;'>
+          <%= link_to board, method: :delete, data: { confirm: t('confirm.delete') }, class: 'btn__delete' do %>
+            <%= fa_icon 'trash', class: 'mr10' %>
+          <% end %>
+          <%= link_to edit_board_path(board) do %>
+            <%= fa_icon 'pencil' %>
+          <% end %>
+        </div>
+      <% else %>
+        <%= render 'general/boards/follow_button', { board: board } %>
+      <% end %>
+      <ul class="list-inline product-meta">
+        <li class="list-inline-item">
+          <%= link_to '#' do %>
+            <%= fa_icon 'user' %>
+            <%= board.user.decorate.full_name %>
+          <% end %>
+        </li>
+        <li class="list-inline-item">
+          <%= fa_icon 'calendar' %>
+          <%= l board.created_at, format: :short %>
+        </li>
+      </ul>
+      <p class="card-text"><%= board.description %></p>
+    </div>
+  </div>
+</div>

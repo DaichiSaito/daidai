@@ -1,0 +1,7 @@
+<div class="product-ratings" style='display: inline; float: right;'>
+<% if current_user.following?(board) %>
+  <%= render 'general/boards/unfollow', { board: board } %>
+<% else %>
+  <%= render 'general/boards/follow', { board: board } %>
+<% end %>
+</div>

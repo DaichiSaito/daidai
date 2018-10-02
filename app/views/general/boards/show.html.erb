@@ -1,0 +1,40 @@
+<div class="col-md-10 offset-md-1 col-lg-10 offset-lg-1">
+  <!-- 掲示板内容 -->
+  <article class="single-post">
+    <div class='row'>
+      <div class='col-md-3'>
+        <%= image_tag(@board.image_url, class: 'card-img-top img-fluid', size: '300x200') %>
+      </div>
+      <div class='col-md-9'>
+        <h3 style='display: inline;'><%= @board.title %></h3>
+        <% if current_user.has_board?(@board) %>
+        <div class='edit_board_btn mr10' style='display: inline; float: right;'>
+          <%= link_to @board, method: :delete, data: { confirm: t('confirm.delete') }, class: 'btn__delete' do %>
+            <%= fa_icon 'trash', class: 'mr10' %>
+          <% end %>
+          <%= link_to edit_board_path(@board) do %>
+            <%= fa_icon 'pencil' %>
+          <% end %>
+        </div>
+        <% else %>
+          <%= render 'follow_button', { board: @board } %>
+        <% end %>
+        <ul class="list-inline">
+          <li class="list-inline-item">by <a href='#'><%= @board.user.decorate.full_name %></a></li>
+          <li class="list-inline-item"><%= l @board.created_at, format: :short  %></li>
+        </ul>
+      </div>
+    </div>
+    <p><%= @board.description %></p>
+  </article>
+
+  <!-- コメントフォーム -->
+  <%= render 'general/comments/form', { board: @board, comment: @comment } %>
+
+  <!-- コメントエリア -->
+  <%= render 'general/comments/comments', { comments: @comments } %>
+
+  <!-- ページネーション -->
+  <%= paginate @comments %>
+</div>
+

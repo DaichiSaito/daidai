@@ -1,0 +1,6 @@
+ja:
+  helpers:
+    submit:
+      board:
+        create: '登録'
+        update: '更新'

@@ -1,0 +1,10 @@
+<div class="block comment">
+  <h4>投稿する</h4>
+  <%= form_for [board, comment], remote: true do |f| %>
+    <div class='form-group mb-30'>
+      <%= f.label :body %><br />
+      <%= f.text_area :body, class: 'form-control', required: true, row: 4, placeholder: 'コメント内容' %>
+    </div>
+    <%= f.submit '投稿', class: 'btn btn-transparent', style: 'padding: 5px 10px' %>
+  <% end %>
+</div>

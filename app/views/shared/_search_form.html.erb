@@ -1,0 +1,10 @@
+<%= search_form_for @q, url: url do |f| %>
+  <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <div class="block d-flex">
+        <%= f.search_field :title_or_description_cont, class: 'form-control mb-2 mr-sm2 mb-sm0 mr5', placeholder: '検索ワード' %>
+        <%= f.submit t('common.search'), class: 'btn btn-main' %>
+      </div>
+    </div>
+  </div>
+<% end %>

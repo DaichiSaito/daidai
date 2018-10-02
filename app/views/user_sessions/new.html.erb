@@ -1,0 +1,22 @@
+<div class="container col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+  <div class="widget change-password">
+    <h3 class="widget-header user"><%= t '.title'  %></h3>
+    <%= form_tag user_sessions_path, method: :post, id: 'login_form' do %>
+      <div class="form-group">
+        <%= label_tag :email, (t '.email') %><br />
+        <%= text_field_tag :email, '', class: 'form-control' %>
+      </div>
+      <div class="form-group">
+        <%= label_tag :password, (t '.password') %><br />
+        <%= password_field_tag :password, '',  class: 'form-control' %>
+      </div>
+      <div class="actions">
+        <%= submit_tag (t 'common.login'), class: 'btn btn-transparent' %>
+      </div>
+    <% end %>
+  </div>
+  <div class='text-center'>
+    <%= link_to (t 'common.to_register'), new_user_path, class: 'mr15' %>
+    <%= link_to (t 'common.to_forget_password'), '#' %>
+  </div>
+</div>
